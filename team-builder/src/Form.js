@@ -14,7 +14,7 @@ export default function Form (props) {
     }
 
     return (
-        <form className='form container'>
+        <form onSubmit={onSubmit} className='form container'>
             <div className='form-group submit'>
                 <h2>Add a Team Member</h2>
                 <button disabled={!values.name || !values.email || !values.role}>Submit</button>
@@ -49,10 +49,10 @@ export default function Form (props) {
                 <label>Role:&nbsp;
                     <select name='role' value={values.role} onChange={onChange}>
                         <option value=''>Select a Role</option>
-                        <option value='student'>Student</option>
+                        <option value='frontEnd'>Front End</option>
+                        <option value='backEnd'>Back End</option>
+                        <option value='designer'>Designer</option>
                         <option value='tl'>Team Lead</option>
-                        <option value='sl'>Section Lead</option>
-                        <option value='instructor'>Instructor</option>
                     </select>
                 </label>
             </div>

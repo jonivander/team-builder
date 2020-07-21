@@ -4,11 +4,11 @@ import Form from './Form'
 import Member from './Member'
 
 
-const initialMembersList = {
+const initialMembersList = [{
   name: 'Jonathan',
   email: 'j.m.warners@gmail.com',
   role: 'Student',
-}
+}]
 
 
 const InitialFormValues = {
@@ -22,13 +22,13 @@ const fakeAxiosGet = () => {
 }
 
 const fakeAxiosPost = (url, { name, email, role }) => {
-  const newMember = {name, email, role }
+  const newMember = { name, email, role }
   return Promise.resolve({ status: 200, success: true, data: newMember})
 }
 
 
 function App() {
-  const [members, setMembers] = useState([])
+  const [members, setMembers] = useState([initialMembersList])
 
   const [formValues, setFormValues] = useState(InitialFormValues)
 
@@ -38,12 +38,12 @@ function App() {
   }
 
   const submitForm = () => {
-    const newMemberFromFormStateClean = {
+    const newMember = {
       name: formValues.name.trim(),
       email: formValues.email.trim(),
       role: formValues.role,
     }
-  }
+  
 
   if (!newMember.name || !newMember.email || !newMember.role) return
 
@@ -53,7 +53,7 @@ function App() {
       setMembers([memberFromAPI, ...members])
       setFormValues(InitialFormValues)
     })
-
+  }
   useEffect(() => {
     fakeAxiosGet('fakeAPI.com').then(res => setMembers(res.data))
   }, [])
@@ -68,8 +68,8 @@ function App() {
       />
       
       {
-        members.map(member => {
-          return (
+        members.map(member=>{
+          return(
             <Member key={member.id} details={member} />
           )
         })

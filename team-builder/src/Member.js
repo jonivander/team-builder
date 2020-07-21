@@ -4,7 +4,7 @@ export default function Member(props) {
   const { details } = props
 
   if (!details) {
-    return <h3>Working fetching your member&apos;s details...</h3>
+    return <h3>Working on your member&apos;s details...</h3>
   }
 
   return (
