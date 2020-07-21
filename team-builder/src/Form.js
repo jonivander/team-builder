@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Button } from 'reactstrap';
 
 export default function Form (props) {
     const { values, update, submit } = props
@@ -17,7 +18,8 @@ export default function Form (props) {
         <form onSubmit={onSubmit} className='form container'>
             <div className='form-group submit'>
                 <h2>Add a Team Member</h2>
-                <button disabled={!values.name || !values.email || !values.role}>Submit</button>
+                <Button color='success'
+                disabled={!values.name || !values.email || !values.role}>Submit</Button>
             </div>
 
             <div className='form-group inputs'>

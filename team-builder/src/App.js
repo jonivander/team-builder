@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Form from './Form'
-import Member from './Member'
+import Form from './Form';
+import Member from './Member';
+
 
 
 const initialMembersList = [{
